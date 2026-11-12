@@ -1,8 +1,21 @@
+<div align="center">
+
+<img src="docs/icon.png" width="96" alt="">
+
 # Sigilcore
 
-A Haunt theme in black chrome and blackletter. Titles, group labels and the palette header are set in UnifrakturMaguntia, filled with a chrome gradient. The UI is Martian Mono Light. A sigil sits at the sidebar's foot, diamonds stand for the window buttons, and a Roman-numeral date sits in the title bar. With a see-through background, a faint large sigil and corner ornaments show behind the window.
+**A black Haunt theme with blackletter labels and a sigil in the sidebar.**
 
-![Sigilcore](screenshot.png)
+[![Haunt plugin](https://img.shields.io/badge/Haunt-plugin-D97757)](https://github.com/highskore/haunt-hackathon)
+![Plugin API 0.5](https://img.shields.io/badge/plugin%20API-0.5-111)
+![Theme](https://img.shields.io/badge/kind-theme-6b7280)
+[![License: MIT](https://img.shields.io/badge/license-MIT-6b7280)](LICENSE)
+
+<img src="docs/screenshot.png" width="720" alt="Haunt in Sigilcore: blackletter group labels, ringed agent icons, a sigil at the sidebar's foot and the Invoke palette">
+
+</div>
+
+A Haunt theme in black chrome and blackletter. Titles, group labels and the palette header are set in UnifrakturMaguntia, filled with a chrome gradient. The UI is Martian Mono Light. A sigil sits at the sidebar's foot, diamonds stand for the window buttons, and a Roman-numeral date sits in the title bar. With a see-through background, a faint large sigil and corner ornaments show behind the window.
 
 ## Install and switch
 
