@@ -1,0 +1,16 @@
+[plugin]
+id = "dev.haunt.theme-sigil"
+name = "Sigilcore"
+description = "Black chrome and blackletter: a sigil-etched, monochrome occult Haunt."
+version = "0.1.0"
+api = "0.5"
+license = "MIT"
+
+[capabilities]
+theme = true
+
+[contributes.theme]
+id = "sigil"
+file = "theme.toml"
+fonts = ["fonts/MartianMono.ttf", "fonts/UnifrakturMaguntia-Book.ttf"]
+licenses = ["OFL-MartianMono.txt", "OFL-UnifrakturMaguntia.txt"]

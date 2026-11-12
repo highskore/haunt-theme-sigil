@@ -1,0 +1,373 @@
+name = "Sigilcore"
+appearance = "dark"
+
+[color]
+window.bg = "#040405"
+window.border = "#77777f"
+sidebar.bg = "#060607"
+hairline = "#2a2a2f"
+row.selected = "#ffffff0f"
+text.primary = "#ececf0"
+text.meta = "#6d6d74"
+text.sub = "#8b8b93"
+text.label = "#c9c9cf"
+text.terminal = "#c8c8cc"
+needs = "#e04a64"
+lights = "#d8d8dc"
+bar.track = "#3c3c42"
+bar.fill = "#f2f2f5"
+icon.bg = "#00000000"
+icon.fg = "#a9a9b0"
+palette.bg = "#050506"
+palette.border = "#a9a9b0"
+palette.ink = "#d8d8dc"
+palette.mute = "#6d6d74"
+palette.rule = "#2a2a2f"
+palette.entry.rule = "#00000000"
+palette.sel = "#c9c9cf"
+palette.chip.fg = "#050506"
+
+[size]
+sidebar.w = 262
+titlebar.h = 44
+titlebar.padx = 52
+lights.d = 12
+lights.gap = 10
+label.font = 17
+label.pad = [14, 14, 4]
+row.pad = [7, 16]
+row.name = 11
+row.meta = 9.5
+row.right = 9.5
+sub.font = 9.5
+bar.h = 1
+bar.mt = 7
+pane.font = 11
+pane.line = 1.75
+palette.radius = 0
+palette.font = 10.5
+palette.small.font = 9
+palette.input.font = 12
+palette.list.pad = [0, 10]
+palette.input.pad = [7, 14]
+palette.entry.pad = [4, 0]
+palette.foot.pad = [8, 0]
+
+[font]
+ui = "Martian Mono"
+mono.family = "Martian Mono"
+
+[app]
+display.font = "UnifrakturMaguntia"
+text.chrome = ["#ffffff 0%", "#c9c9cf 22%", "#5b5b62 48%", "#f2f2f5 60%", "#8b8b93 82%", "#e8e8ec 100%"]
+title.fg = "#ececf0"
+title.meta = "#6d6d74"
+title.font = 26
+title.meta.font = 9
+title.meta.tracking = 0.4
+titlebar.right.font = 10
+titlebar.right.tracking = 0.2
+titlebar.rule2 = "#1a1a1e"
+palette.header.font = 18
+ornament = "#bdbdc4"
+ornament.dim = "#55555c"
+sidebar.foot.fg = "#5b5b62"
+sidebar.foot.font = 8.5
+sidebar.foot.pad = [10, 14, 14]
+sidebar.foot.art = 52
+sidebar.foot.tracking = 0.35
+sidebar.foot.align = "center"
+label.indent = 37.0711
+palette.pill.inset = 10
+palette.row.inset = 4
+palette.pill.radius = 0
+palette.pill.highlight = "#00000000"
+palette.pill.ink = "#050506"
+palette.pill.mute = "#26262a"
+
+[layout]
+palette_position = "bottom-right"
+palette_width = 330
+palette_rows = "single-line"
+title_format = "✦ ✦ ✦  {app}  ✦ ✦ ✦"
+
+[effects]
+window.square = true
+window.border = true
+row.select = "none"
+progress.style = "none"
+bar.done = false
+needs.glow = true
+palette.inset = 28
+palette.header = true
+palette.input.rules = true
+ui.weight = "light"
+titlebar.lights = "grey"
+lights.shape = "diamond"
+sidebar.footer = true
+label.case = "sentence"
+label.weight = "regular"
+palette.font = "mono"
+palette.icons = true
+palette.selection = "pill"
+palette.foot = true
+palette.scrim = false
+palette.keys = "plain"
+palette.input.icon = true
+palette.tab.sub = "task"
+
+[strings]
+titlebar.right = "{day.roman} · {month.roman} · {year.roman}"
+palette.header = "Invoke"
+palette.input.glyph = "⛧"
+palette.foot = "↵ SUMMON · ESC BANISH"
+sidebar.foot = "AGENTS {agents.roman}"
+row.sub.prefix = "† "
+
+[ghostty]
+background = "#030303"
+foreground = "#c8c8cc"
+cursor-color = "#e9e9ee"
+selection-background = "#2e2e34"
+font-family = "Martian Mono"
+font-style = "Light"
+font-size = 11
+palette = ["0=#0a0a0c", "1=#b3263e", "2=#8fa89b", "3=#c9b98a", "4=#7f8fb3", "5=#a07cc0", "6=#8fb8bf", "7=#c8c8cc", "8=#4a4a50", "9=#d6475f", "10=#a9c4b6", "11=#e2d3a4", "12=#9eadd1", "13=#bd9bdc", "14=#acd3da", "15=#f4f4f6"]
+
+# The card's artwork, drawn by Haunt from these layers (docs/themes.md, "Layers").
+
+# A second, darker rule just above the title bar's.
+[[layer]]
+id = "titlebar-rule2"
+slot = "titlebar"
+  [[layer.draw]]
+  kind = "rect"
+  y = "bottom"
+  h = 1
+  dy = -2
+  fill = "@app.titlebar.rule2"
+
+# ── ◇ Label ─────: a short rule, a diamond, the label ([app] label.indent leaves it room), a rule fading out.
+[[layer]]
+id = "label-diamond"
+slot = "label.group"
+  [[layer.draw]]
+  kind = "gradient"
+  x = "left"
+  dx = 14
+  w = 14
+  y = "top"
+  dy = 26.5
+  h = 1
+  stops = ["#6d6d7400", "#6d6d74"]
+
+  [[layer.draw]]
+  kind = "path"
+  d = "M3.5355 0 L7.0711 3.5355 L3.5355 7.0711 L0 3.5355 Z"
+  view = [7.0711, 7.0711]
+  x = "left"
+  dx = 36
+  w = 7.0711
+  y = "top"
+  dy = 23.4645
+  h = 7.0711
+  stroke = "@app.ornament"
+
+  [[layer.draw]]
+  kind = "gradient"
+  from_text = true
+  left = 8
+  right = 14
+  y = "top"
+  dy = 26.5
+  h = 1
+  angle = 0
+  stops = ["#6d6d74", "#6d6d7400"]
+
+# The selected row: a glow from its left edge and two corner brackets.
+[[layer]]
+id = "row-brackets"
+slot = "row.selected"
+  [[layer.draw]]
+  kind = "gradient"
+  angle = 0
+  stops = ["#ffffff0f 0%", "#ffffff00 84%"]
+
+  [[layer.draw]]
+  kind = "path"
+  d = "M0.5 9 L0.5 0.5 L9 0.5"
+  view = [9, 9]
+  x = "left"
+  dx = 6
+  w = 9
+  y = "top"
+  dy = 3
+  h = 9
+  stroke = "@text.primary"
+
+  [[layer.draw]]
+  kind = "path"
+  d = "M8.5 0 L8.5 8.5 L0 8.5"
+  view = [9, 9]
+  x = "right"
+  dx = -6
+  w = 9
+  y = "bottom"
+  dy = -3
+  h = 9
+  stroke = "@text.primary"
+
+# Claude's icon in a ring, a fainter one 3 pt out.
+[[layer]]
+id = "icon-rings"
+slot = "icon"
+index = 0
+  [[layer.draw]]
+  kind = "rect"
+  radius = 20
+  stroke = "@app.ornament"
+
+  [[layer.draw]]
+  kind = "rect"
+  left = -4
+  right = -4
+  top = -4
+  bottom = -4
+  radius = 20
+  stroke = "@app.ornament.dim"
+
+# The shell glyph on a turned square instead of a tile.
+[[layer]]
+id = "icon-shell-diamond"
+slot = "icon"
+index = 2
+  [[layer.draw]]
+  kind = "path"
+  d = "M9 -0.1924 L18.1924 9 L9 18.1924 L-0.1924 9 Z"
+  view = [18, 18]
+  stroke = "@app.ornament.dim"
+
+# Progress: a 2-on 3-off track, a fill fading in from it, and a glowing diamond knob.
+[[layer]]
+id = "bar-dotted"
+slot = "bar.track"
+  [[layer.draw]]
+  kind = "pattern"
+  cell = [5, 1]
+  dots = ["#3c3c42 0 0", "#3c3c42 1 0"]
+
+[[layer]]
+id = "bar-knob"
+slot = "bar.fill"
+  [[layer.draw]]
+  kind = "gradient"
+  angle = 0
+  stops = ["#3c3c42", "#f2f2f5"]
+
+  [[layer.draw]]
+  kind = "shadow"
+  x = "right"
+  dx = 3
+  w = 6
+  y = "center"
+  h = 6
+  radius = 3
+  blur = 8
+  color = "@app.bar.knob"
+
+  [[layer.draw]]
+  kind = "path"
+  d = "M4.2426 0 L8.4853 4.2426 L4.2426 8.4853 L0 4.2426 Z"
+  view = [8.4853, 8.4853]
+  x = "right"
+  dx = 4.2426
+  w = 8.4853
+  y = "center"
+  h = 8.4853
+  fill = "@app.bar.knob"
+
+# The sigil at the sidebar's foot, over the agent count ([app] sidebar.foot.art keeps its room).
+[[layer]]
+id = "foot-sigil"
+slot = "sidebar.footer"
+  [[layer.draw]]
+  kind = "path"
+  x = "center"
+  w = 56
+  y = "top"
+  h = 56
+  view = [56, 56]
+  stroke = "@app.ornament.dim"
+  d = "M53.76 28C53.76 42.23 42.23 53.76 28 53.76C13.77 53.76 2.24 42.23 2.24 28C2.24 13.77 13.77 2.24 28 2.24C42.23 2.24 53.76 13.77 53.76 28ZM50.96 28C50.96 40.68 40.68 50.96 28 50.96C15.32 50.96 5.04 40.68 5.04 28C5.04 15.32 15.32 5.04 28 5.04C40.68 5.04 50.96 15.32 50.96 28ZM28 2.24L28 10.24M30.25 2.34L29.98 5.33M32.47 2.63L31.95 5.59M34.67 3.12L33.89 6.02M36.81 3.79L35.78 6.61M38.89 4.65L37.62 7.37M40.88 5.69L36.88 12.62M42.78 6.9L41.05 9.36M44.56 8.27L42.63 10.56M46.22 9.78L44.09 11.91M47.73 11.44L45.44 13.37M49.1 13.22L46.64 14.95M50.31 15.12L43.38 19.12M51.35 17.11L48.63 18.38M52.21 19.19L49.39 20.22M52.88 21.33L49.98 22.11M53.37 23.53L50.41 24.05M53.66 25.75L50.67 26.02M53.76 28L45.76 28M53.66 30.25L50.67 29.98M53.37 32.47L50.41 31.95M52.88 34.67L49.98 33.89M52.21 36.81L49.39 35.78M51.35 38.89L48.63 37.62M50.31 40.88L43.38 36.88M49.1 42.78L46.64 41.05M47.73 44.56L45.44 42.63M46.22 46.22L44.09 44.09M44.56 47.73L42.63 45.44M42.78 49.1L41.05 46.64M40.88 50.31L36.88 43.38M38.89 51.35L37.62 48.63M36.81 52.21L35.78 49.39M34.67 52.88L33.89 49.98M32.47 53.37L31.95 50.41M30.25 53.66L29.98 50.67M28 53.76L28 45.76M25.75 53.66L26.02 50.67M23.53 53.37L24.05 50.41M21.33 52.88L22.11 49.98M19.19 52.21L20.22 49.39M17.11 51.35L18.38 48.63M15.12 50.31L19.12 43.38M13.22 49.1L14.95 46.64M11.44 47.73L13.37 45.44M9.78 46.22L11.91 44.09M8.27 44.56L10.56 42.63M6.9 42.78L9.36 41.05M5.69 40.88L12.62 36.88M4.65 38.89L7.37 37.62M3.79 36.81L6.61 35.78M3.12 34.67L6.02 33.89M2.63 32.47L5.59 31.95M2.34 30.25L5.33 29.98M2.24 28L10.24 28M2.34 25.75L5.33 26.02M2.63 23.53L5.59 24.05M3.12 21.33L6.02 22.11M3.79 19.19L6.61 20.22M4.65 17.11L7.37 18.38M5.69 15.12L12.62 19.12M6.9 13.22L9.36 14.95M8.27 11.44L10.56 13.37M9.78 9.78L11.91 11.91M11.44 8.27L13.37 10.56M13.22 6.9L14.95 9.36M15.12 5.69L19.12 12.62M17.11 4.65L18.38 7.37M19.19 3.79L20.22 6.61M21.33 3.12L22.11 6.02M23.53 2.63L24.05 5.59M25.75 2.34L26.02 5.33M28 5.04L37.96 48.69L10.05 13.68L50.38 33.11L5.62 33.11L45.95 13.68L18.04 48.69ZM28 43.68L14.42 20.16L41.58 20.16ZM31.92 28C31.92 30.16 30.16 31.92 28 31.92C25.84 31.92 24.08 30.16 24.08 28C24.08 25.84 25.84 24.08 28 24.08C30.16 24.08 31.92 25.84 31.92 28ZM28 5.04L28 50.96M22.4 34.72L33.6 34.72M28.9 5.04C28.9 5.53 28.49 5.94 28 5.94C27.51 5.94 27.1 5.53 27.1 5.04C27.1 4.55 27.51 4.14 28 4.14C28.49 4.14 28.9 4.55 28.9 5.04ZM46.85 13.68C46.85 14.18 46.45 14.58 45.95 14.58C45.46 14.58 45.05 14.18 45.05 13.68C45.05 13.19 45.46 12.79 45.95 12.79C46.45 12.79 46.85 13.19 46.85 13.68ZM51.28 33.11C51.28 33.6 50.88 34.01 50.38 34.01C49.89 34.01 49.49 33.6 49.49 33.11C49.49 32.61 49.89 32.21 50.38 32.21C50.88 32.21 51.28 32.61 51.28 33.11ZM38.86 48.69C38.86 49.18 38.46 49.58 37.96 49.58C37.47 49.58 37.07 49.18 37.07 48.69C37.07 48.19 37.47 47.79 37.96 47.79C38.46 47.79 38.86 48.19 38.86 48.69ZM18.93 48.69C18.93 49.18 18.53 49.58 18.04 49.58C17.54 49.58 17.14 49.18 17.14 48.69C17.14 48.19 17.54 47.79 18.04 47.79C18.53 47.79 18.93 48.19 18.93 48.69ZM6.51 33.11C6.51 33.6 6.11 34.01 5.62 34.01C5.12 34.01 4.72 33.6 4.72 33.11C4.72 32.61 5.12 32.21 5.62 32.21C6.11 32.21 6.51 32.61 6.51 33.11ZM10.95 13.68C10.95 14.18 10.54 14.58 10.05 14.58C9.55 14.58 9.15 14.18 9.15 13.68C9.15 13.19 9.55 12.79 10.05 12.79C10.54 12.79 10.95 13.19 10.95 13.68Z"
+
+  [[layer.draw]]
+  kind = "path"
+  x = "center"
+  w = 56
+  y = "top"
+  h = 56
+  view = [56, 56]
+  stroke = "@app.ornament.dim"
+  dash = [1, 4]
+  d = "M43.76 28C43.76 36.7 36.7 43.76 28 43.76C19.3 43.76 12.24 36.7 12.24 28C12.24 19.3 19.3 12.24 28 12.24C36.7 12.24 43.76 19.3 43.76 28Z"
+
+# Behind a see-through terminal only: the sigil, large, off the pane's top right, and the card's corner marks.
+[[layer]]
+id = "pane-sigil"
+slot = "pane.backdrop"
+opacity = 0.07
+  [[layer.draw]]
+  kind = "path"
+  x = "right"
+  dx = 60
+  w = 520
+  y = "top"
+  dy = -40
+  h = 520
+  view = [260, 260]
+  stroke = "#ffffff"
+  width = 1.2
+  d = "M249.6 130C249.6 196.05 196.05 249.6 130 249.6C63.95 249.6 10.4 196.05 10.4 130C10.4 63.95 63.95 10.4 130 10.4C196.05 10.4 249.6 63.95 249.6 130ZM236.6 130C236.6 188.87 188.87 236.6 130 236.6C71.13 236.6 23.4 188.87 23.4 130C23.4 71.13 71.13 23.4 130 23.4C188.87 23.4 236.6 71.13 236.6 130ZM130 10.4L130 14.4M140.42 10.86L140.29 12.35M150.77 12.22L150.51 13.69M160.95 14.48L160.57 15.92M170.91 17.61L170.39 19.02M180.55 21.61L179.91 22.97M189.8 26.42L187.8 29.89M198.6 32.03L197.74 33.26M206.88 38.38L205.91 39.53M214.57 45.43L213.51 46.49M221.62 53.12L220.47 54.09M227.97 61.4L226.74 62.26M233.58 70.2L230.11 72.2M238.39 79.45L237.03 80.09M242.39 89.09L240.98 89.61M245.52 99.05L244.08 99.43M247.78 109.23L246.31 109.49M249.14 119.58L247.65 119.71M249.6 130L245.6 130M249.14 140.42L247.65 140.29M247.78 150.77L246.31 150.51M245.52 160.95L244.08 160.57M242.39 170.91L240.98 170.39M238.39 180.55L237.03 179.91M233.58 189.8L230.11 187.8M227.97 198.6L226.74 197.74M221.62 206.88L220.47 205.91M214.57 214.57L213.51 213.51M206.88 221.62L205.91 220.47M198.6 227.97L197.74 226.74M189.8 233.58L187.8 230.11M180.55 238.39L179.91 237.03M170.91 242.39L170.39 240.98M160.95 245.52L160.57 244.08M150.77 247.78L150.51 246.31M140.42 249.14L140.29 247.65M130 249.6L130 245.6M119.58 249.14L119.71 247.65M109.23 247.78L109.49 246.31M99.05 245.52L99.43 244.08M89.09 242.39L89.61 240.98M79.45 238.39L80.09 237.03M70.2 233.58L72.2 230.11M61.4 227.97L62.26 226.74M53.12 221.62L54.09 220.47M45.43 214.57L46.49 213.51M38.38 206.88L39.53 205.91M32.03 198.6L33.26 197.74M26.42 189.8L29.89 187.8M21.61 180.55L22.97 179.91M17.61 170.91L19.02 170.39M14.48 160.95L15.92 160.57M12.22 150.77L13.69 150.51M10.86 140.42L12.35 140.29M10.4 130L14.4 130M10.86 119.58L12.35 119.71M12.22 109.23L13.69 109.49M14.48 99.05L15.92 99.43M17.61 89.09L19.02 89.61M21.61 79.45L22.97 80.09M26.42 70.2L29.89 72.2M32.03 61.4L33.26 62.26M38.38 53.12L39.53 54.09M45.43 45.43L46.49 46.49M53.12 38.38L54.09 39.53M61.4 32.03L62.26 33.26M70.2 26.42L72.2 29.89M79.45 21.61L80.09 22.97M89.09 17.61L89.61 19.02M99.05 14.48L99.43 15.92M109.23 12.22L109.49 13.69M119.58 10.86L119.71 12.35M130 23.4L176.25 226.04L46.66 63.54L233.93 153.72L26.07 153.72L213.34 63.54L83.75 226.04ZM130 202.8L66.95 93.6L193.05 93.6ZM148.2 130C148.2 140.05 140.05 148.2 130 148.2C119.95 148.2 111.8 140.05 111.8 130C111.8 119.95 119.95 111.8 130 111.8C140.05 111.8 148.2 119.95 148.2 130ZM130 23.4L130 236.6M104 161.2L156 161.2M134.16 23.4C134.16 25.7 132.3 27.56 130 27.56C127.7 27.56 125.84 25.7 125.84 23.4C125.84 21.1 127.7 19.24 130 19.24C132.3 19.24 134.16 21.1 134.16 23.4ZM217.5 63.54C217.5 65.83 215.64 67.7 213.34 67.7C211.05 67.7 209.18 65.83 209.18 63.54C209.18 61.24 211.05 59.38 213.34 59.38C215.64 59.38 217.5 61.24 217.5 63.54ZM238.09 153.72C238.09 156.02 236.22 157.88 233.93 157.88C231.63 157.88 229.77 156.02 229.77 153.72C229.77 151.42 231.63 149.56 233.93 149.56C236.22 149.56 238.09 151.42 238.09 153.72ZM180.41 226.04C180.41 228.34 178.55 230.2 176.25 230.2C173.95 230.2 172.09 228.34 172.09 226.04C172.09 223.75 173.95 221.88 176.25 221.88C178.55 221.88 180.41 223.75 180.41 226.04ZM87.91 226.04C87.91 228.34 86.05 230.2 83.75 230.2C81.45 230.2 79.59 228.34 79.59 226.04C79.59 223.75 81.45 221.88 83.75 221.88C86.05 221.88 87.91 223.75 87.91 226.04ZM30.23 153.72C30.23 156.02 28.37 157.88 26.07 157.88C23.78 157.88 21.91 156.02 21.91 153.72C21.91 151.42 23.78 149.56 26.07 149.56C28.37 149.56 30.23 151.42 30.23 153.72ZM50.82 63.54C50.82 65.83 48.95 67.7 46.66 67.7C44.36 67.7 42.5 65.83 42.5 63.54C42.5 61.24 44.36 59.38 46.66 59.38C48.95 59.38 50.82 61.24 50.82 63.54Z"
+
+  [[layer.draw]]
+  kind = "path"
+  x = "right"
+  dx = 60
+  w = 520
+  y = "top"
+  dy = -40
+  h = 520
+  view = [260, 260]
+  stroke = "#ffffff"
+  width = 1.2
+  dash = [1, 4]
+  d = "M244.6 130C244.6 193.29 193.29 244.6 130 244.6C66.71 244.6 15.4 193.29 15.4 130C15.4 66.71 66.71 15.4 130 15.4C193.29 15.4 244.6 66.71 244.6 130Z"
+
+[[layer]]
+id = "pane-corners"
+slot = "pane.backdrop"
+  [[layer.draw]]
+  kind = "path"
+  x = "left"
+  dx = 6
+  w = 46
+  y = "top"
+  dy = 6
+  h = 46
+  view = [46, 46]
+  repeat = "corners"
+  stroke = "@app.ornament"
+  d = "M3 43 L3 3 L43 3 M3 14 C9 14 14 9 14 3 M16.5 14 C16.5 15.38 15.38 16.5 14 16.5 C12.62 16.5 11.5 15.38 11.5 14 C11.5 12.62 12.62 11.5 14 11.5 C15.38 11.5 16.5 12.62 16.5 14 Z M14 14 L23 23 M18 9 L21 6 M9 18 L6 21 M28 3 L31 6 L34 3 M3 28 L6 31 L3 34"
+
+  [[layer.draw]]
+  kind = "path"
+  x = "left"
+  dx = 6
+  w = 46
+  y = "top"
+  dy = 6
+  h = 46
+  view = [46, 46]
+  repeat = "corners"
+  stroke = "@app.ornament.dim"
+  d = "M8 38 L8 8 L38 8"
